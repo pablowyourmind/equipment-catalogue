@@ -46,7 +46,7 @@ public class DeviceController {
     @GetMapping("/search")
     public ResponseEntity<List<Device>> searchDevices(@RequestParam String name) {
         logger.info("Searching devices with name: {}", name);
-        List<Device> devices = deviceService.searchByName(name);
+        List<Device> devices = deviceService.findByName(name);
         logger.info("Found {} devices", devices.size());
         return ResponseEntity.ok(devices);
     }
