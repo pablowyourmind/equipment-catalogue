@@ -6,6 +6,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * Represents a device entity stored in the "devices" collection in MongoDB.
+ * This class includes details such as the device's name, manufacturer, purchase date,
+ * quantity, total price, status, and associated files.
+ */
 @Data
 @Document(collection = "devices")
 public class Device {

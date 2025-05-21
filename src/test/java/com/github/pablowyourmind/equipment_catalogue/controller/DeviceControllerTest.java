@@ -15,6 +15,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+/**
+ * Test class for the DeviceController.
+ * This class uses the @WebMvcTest annotation to test the controller layer in isolation.
+ */
 @WebMvcTest(DeviceController.class)
 class DeviceControllerTest {
 
@@ -24,6 +28,12 @@ class DeviceControllerTest {
     @MockitoBean
     private DeviceService deviceService;
 
+    /**
+     * Test for the addDevice method in the DeviceController.
+     * This test verifies that a device can be added successfully and that the response contains the correct device information.
+     *
+     * @throws Exception if an error occurs during the request
+     */
     @Test
     void shoudlAddDevice() throws Exception {
         Device device = new Device();

@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * REST controller for managing devices.
+ * Provides endpoints for adding and searching devices.
+ */
 @RestController
 @RequestMapping("/api/devices")
 @RequiredArgsConstructor
@@ -19,6 +23,12 @@ public class DeviceController {
 
     private final DeviceService deviceService;
 
+    /**
+     * Adds a new device to the catalogue.
+     *
+     * @param device the device to add
+     * @return the added device
+     */
     @PostMapping
     public ResponseEntity<Device> addDevice(@RequestBody Device device) {
         logger.info("Adding device: {}", device);
@@ -27,6 +37,12 @@ public class DeviceController {
         return ResponseEntity.ok(savedDevice);
     }
 
+    /**
+     * Searches for devices by name.
+     *
+     * @param name the name to search for
+     * @return a list of devices matching the search criteria
+     */
     @GetMapping("/search")
     public ResponseEntity<List<Device>> searchDevices(@RequestParam String name) {
         logger.info("Searching devices with name: {}", name);
